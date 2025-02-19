@@ -7,7 +7,6 @@
     "mig": "npx sequelize db:migrate",
     "sequelize": "npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:migrate:undo:all && npx sequelize db:migrate",
     "seed": "npx sequelize db:seed:all",
-    "undoSeed": "npx sequelize db:seed:all",
     "createDB": "npx sequelize db:create",
     "dropDB": "npx sequelize db:drop",
     "db": "npx sequelize db:drop && npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all",
@@ -31,6 +30,7 @@
     "sequelize-cli": "^6.6.2"
   },
   "dependencies": {
+    "axios": "^1.7.9",
     "bcrypt": "^5.1.1",
     "express": "^4.21.2",
     "pg": "^8.13.3",
