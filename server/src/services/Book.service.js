@@ -1,13 +1,10 @@
-const {Book} = require('../db/books')
+const { Book } = require('../db/models');
 
-
-class BookService{
-static async getAll(){
-  return await Book.findAll()
+class BookService {
+  static async getAll() {
+    return await Book.findAll();
+   
+  }
 }
 
-}
-
-
-
-module.exports = BookService
+module.exports = BookService;

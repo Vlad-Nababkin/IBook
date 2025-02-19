@@ -5,7 +5,7 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      this.hasMany(models.Book, { foreignKey: 'book_id' })
+      this.hasMany(models.Book, { foreignKey: 'user_id' })
     }
   }
   User.init({
@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     phone_number: DataTypes.INTEGER,
     password: DataTypes.STRING,
-    book_id: DataTypes.INTEGER
+    
   }, {
     sequelize,
     modelName: 'User',
