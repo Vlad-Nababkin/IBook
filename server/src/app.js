@@ -6,6 +6,8 @@ const indexRouter = require("./routes/index.routes");
 
 const app = express();
 
+
+
 serverConfig(app);
 
 const PORT = process.env.PORT || 3000;
