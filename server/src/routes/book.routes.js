@@ -5,8 +5,8 @@ router
 // не забыть добавить верификацию токенов по логике
 .get('/', BookController.getAllBooks)
 .get('/:id', BookController.getBookById)
-// .post('/', BookController.createBook)
-// .put('/:id', BookController.updateBook)
+.post('/', BookController.createBook)
+.put('/:id', BookController.updateBook)
 // .delete('/:id', BookController.deleteBook)
 
 
