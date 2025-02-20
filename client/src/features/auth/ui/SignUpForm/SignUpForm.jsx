@@ -9,7 +9,7 @@ const INITIAL_INPUTS_DATA = {
   email: '',
   password: '',
   repeatPassword: '',
-  PhoneNumber:'',
+  PhoneNumber:'num',
 };
 
 export default function SignUpForm({ setUser }) {
@@ -87,12 +87,12 @@ export default function SignUpForm({ setUser }) {
         onChange={onChangeHandler}
         value={repeatPassword}
       />
-            <input
-        type='number'
+        <input
+        type='text'
         name='phoneNumber'
         placeholder='Phone number'
         onChange={onChangeHandler}
-        value={repeatPassword}
+        value={phoneNumber}
       />
 
       <button type='submit'>Send</button>
