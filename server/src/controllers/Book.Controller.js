@@ -46,7 +46,7 @@ class BookController {
     
     const {id}=res.locals.user
     const { title, author, user_comment, book_cover } = req.body;
-// console.log(req.body,"=======>>>>>");
+
 // console.log(res.locals.user.id);
 
 
