@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const formatResponse = require("../utils/formatResponse");
