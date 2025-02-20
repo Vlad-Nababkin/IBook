@@ -11,7 +11,7 @@ module.exports = {
 					email: 'filip@mail.ru',
 					phone_number: '79653232112',
 					password: 'qwertyPhil',
-					book_id: 1,
+					
 					createdAt: new Date(),
 					updatedAt: new Date(),
 				},
