@@ -14,4 +14,4 @@ function verifyAccessToken(req, res, next) {
   }
 }
 
-module.exports = verifyAccessToken; # Заполнение verifyRefreshToken.js с исправлениями
+module.exports = verifyAccessToken

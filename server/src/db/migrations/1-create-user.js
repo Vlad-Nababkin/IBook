@@ -1,8 +1,8 @@
-'use strict';
-/** @type {import('sequelize-cli').Migration} */
+/* eslint-disable no-unused-vars  */
+'use strict'
 module.exports = {
-  async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Users', {
+	async up(queryInterface, Sequelize) {
+		await queryInterface.createTable('Users', {
 			id: {
 				allowNull: false,
 				autoIncrement: true,
@@ -37,8 +37,8 @@ module.exports = {
 				defaultValue: Sequelize.fn('NOW'),
 			},
 		})
-  },
-  async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Users');
-  }
-};
+	},
+	async down(queryInterface, Sequelize) {
+		await queryInterface.dropTable('Users')
+	},
+}
