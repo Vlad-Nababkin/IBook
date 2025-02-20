@@ -5,6 +5,7 @@ const AuthValidator = require('../utils/Auth.validator')
 const UserService = require('../services/User.service')
 const bcrypt = require('bcrypt')
 
+// try to fix
 class AuthController {
 	static async refreshTokens(req, res) {
 		try {
