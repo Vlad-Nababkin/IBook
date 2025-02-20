@@ -5,19 +5,11 @@ import { BookApi } from "../../entities/book/BookApi";
 import BookList from "../../widgets/BookList/BookList";
 
 export default function BooksPage() {
-  
   const [books, setBooks] = useState([])
 
   useEffect(() => {
-    // от сервера придет промис, который сразу деструктурируем по ключам
-    BookApi.getAll().then(({ data, message, error, statusCode }) => {
-      if (error) {
-        alert(message);
-      }
-      //обноволяем состояние
-      setBooks(data);
-    });
-  }, []);
+		BookApi.getAll().then(setBooks)
+	}, [])
 return(
   <>
   <h2>страничка создания и отрисовки существующих</h2>
