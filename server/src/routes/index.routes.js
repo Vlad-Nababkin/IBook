@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const authRoutes = require("./user.routes");
+const authRoutes = require("./auth.routes");
 const formatResponse = require("../utils/formatResponse");
 const bookRoutes = require('./book.routes')
 
