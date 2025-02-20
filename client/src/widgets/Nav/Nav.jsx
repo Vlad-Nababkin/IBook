@@ -36,22 +36,17 @@ export default function Nav({ user, setUser }) {
 	}
 	return (
 		<nav>
-			{!user && (
-				<>
+			
 					<NavLink to='/'>Home</NavLink>
 					<NavLink to='/login'>Login</NavLink>
 					<NavLink to='/reg'>Registration</NavLink>
-				</>
-			)}
-			{user && (
-				<>
-					<span>Привет {user.username}</span>
-					<NavLink to='/post'>Post</NavLink>
+			
+					{/* <span>Привет {user.username}</span> */}
+					<NavLink to='/books'>Books</NavLink>
 					<button type='submit' onClick={signOutHandler}>
 						Exit
 					</button>
-				</>
-			)}
+			
 		</nav>
 	)
 }
