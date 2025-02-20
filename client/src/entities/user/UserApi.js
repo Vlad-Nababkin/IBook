@@ -1,7 +1,7 @@
 import { axiosInstance } from '../../shared/lib/axiosinstance';
 
 export default class UserApi {
-  static async refreshTokens() {
+  static async refreshToken() {
     const response = await axiosInstance.get('/auth/refreshToken');
     return response.data;
   }

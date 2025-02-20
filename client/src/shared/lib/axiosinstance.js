@@ -33,7 +33,7 @@ axiosInstance.interceptors.response.use(
     //?  проверяем статус и проверка на первичность запроса, если попали внутрь, значит токен протух и нам нужна новая пара
     if (error.response.status === 403 && !prevRequest.sent) {
       //? делаем запрос на пару токенов
-      const response = await axiosInstance.get('/auth/refreshTokens');
+      const response = await axiosInstance.get('/auth/refreshToken');
       //? достаем токен из ответа
       setAccessToken(response.data.accessToken);
       //? и создаем новый ключ и sent для проверки первичности
