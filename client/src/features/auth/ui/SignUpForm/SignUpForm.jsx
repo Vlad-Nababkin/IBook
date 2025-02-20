@@ -12,7 +12,9 @@ const INITIAL_INPUTS_DATA = {
 };
 
 export default function SignUpForm({ setUser }) {
+  
   const [inputs, setInputs] = useState(INITIAL_INPUTS_DATA);
+  
   const navigate = useNavigate();
 
   const onChangeHandler = (event) => {

@@ -43,7 +43,12 @@ class BookController {
 
   // создать
   static async createBook(req, res) {
-    const { title, author, user_comment, book_cover, user_id } = req.body;
+    
+    const {id}=res.locals.user
+    const { title, author, user_comment, book_cover } = req.body;
+// console.log(req.body,"=======>>>>>");
+// console.log(res.locals.user.id);
+
 
     const { isValid, error } = BookValidator.validate({
       title,
@@ -55,15 +60,17 @@ class BookController {
     }
 
     try {
+      
+      
       const newBook = await BookService.create({
         title,
         author,
         user_comment,
         book_cover,
-        user_id,
+        user_id:id
       });
-      // console.log(newBook, '<<<<<<<<<<<<<<<<<<<<<<<<');
-
+      console.log(newBook, '<<<<<<<<<<<<<<<<<<<<<<<');
+      // console.log("===>>>");
       if (!newBook) {
         return res.status(400).json(formatResponse(400, `Failed to create new Book`));
       }

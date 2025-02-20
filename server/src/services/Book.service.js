@@ -12,7 +12,9 @@ class BookService {
     });
   }
 
-  static async create({ title, author, user_comment, book_cover, user_id }) {
+  static async create({ title, author, user_comment, book_cover,user_id}) {
+    console.log(title, author, user_comment, book_cover,user_id);
+    
     return await Book.create({
       title,
       author,

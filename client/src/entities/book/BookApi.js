@@ -10,7 +10,11 @@ export class BookApi {
   }
 
   static async create(inputs){
+
+    
     const {data} = await axiosInstance.post('/books', inputs)
+    console.log("=====>>",data);
+    
     return data
   }
 
