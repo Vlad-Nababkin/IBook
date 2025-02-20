@@ -13,4 +13,9 @@ export class BookApi {
     const {data} = await axiosInstance.post('/books', inputs)
     return data
   }
+
+  static async delete(id){
+    const {data} = await axiosInstance.delete(`/books/${id}`)
+    return data
+  }
 }
