@@ -17,15 +17,10 @@ module.exports = {
 				type: Sequelize.STRING,
 				allowNull: false,
 			},
-			phone_number: {
-				type: Sequelize.STRING,
-				allowNull: false,
-			},
 			password: {
 				type: Sequelize.STRING,
 				allowNull: false,
 			},
-	
 			createdAt: {
 				allowNull: false,
 				type: Sequelize.DATE,

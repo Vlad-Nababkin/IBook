@@ -10,6 +10,11 @@ class AuthController {
 	static async refreshTokens(req, res) {
 		try {
 			const { user } = res.locals
+			
+
+			if (!user) {
+				return res.status(400).json(formatResponse(400, 'User data is missing'))
+			}
 
 			const { accessToken, refreshToken } = generateTokens({ user })
 
@@ -19,8 +24,8 @@ class AuthController {
 					accessToken,
 				})
 			)
-		} catch ({ message }) {
-			console.error(message)
+		} catch ({ message, stack }) {
+			console.error('Error in refreshTokens:', message, stack)
 			res
 				.status(500)
 				.json(formatResponse(500, 'Internal server error', null, message))
@@ -28,11 +33,10 @@ class AuthController {
 	}
 
 	static async signUp(req, res) {
-		const { email, username, phone_number, password } = req.body
+		const { email, username, password } = req.body
 
 		const { isValid, error } = AuthValidator.validateSignUp({
 			email,
-			phone_number,
 			password,
 			username,
 		})
@@ -59,13 +63,12 @@ class AuthController {
 						)
 					)
 			}
-			const hashedPassword = await bcrypt.hash(10)
+			const hashedPassword = await bcrypt.hash(password, 10)
 
 			const newUser = await UserService.create({
 				username,
 				email: normalizedEmail,
-				password: hashedPassword,
-				phone_number,
+				password: hashedPassword
 			})
 
 			if (!newUser) {
@@ -101,7 +104,7 @@ class AuthController {
 			console.error(message)
 			res
 				.status(500)
-				.json(formatResponse(500, 'Internal server error', null, message))
+				.json(formatResponse(500, '======Internal server error', null, message))
 		}
 	}
 

@@ -9,7 +9,6 @@ const INITIAL_INPUTS_DATA = {
   email: '',
   password: '',
   repeatPassword: '',
-  PhoneNumber:'num',
 };
 
 export default function SignUpForm({ setUser }) {
@@ -31,7 +30,6 @@ export default function SignUpForm({ setUser }) {
         statusCode,
         data,
         error: responseError,
-        message,
       } = await UserApi.signUp(inputs);
 
       if (responseError) {
@@ -51,7 +49,7 @@ export default function SignUpForm({ setUser }) {
     }
   };
 
-  const { username, email, password, repeatPassword, phoneNumber } = inputs;
+  const { username, email, password, repeatPassword} = inputs;
 
   return (
     <form onSubmit={onSubmitHandler}>
@@ -86,13 +84,6 @@ export default function SignUpForm({ setUser }) {
         placeholder='Repeat password'
         onChange={onChangeHandler}
         value={repeatPassword}
-      />
-        <input
-        type='text'
-        name='phoneNumber'
-        placeholder='Phone number'
-        onChange={onChangeHandler}
-        value={phoneNumber}
       />
 
       <button type='submit'>Send</button>

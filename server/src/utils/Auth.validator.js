@@ -1,5 +1,5 @@
 class AuthValidator {
-	static validateSignUp({ username, email, phone_number, password }) {
+	static validateSignUp({ username, email, password }) {
 		if (
 			!username ||
 			username.trim().length === 0 ||
@@ -33,18 +33,6 @@ class AuthValidator {
 				isValid: false,
 				error:
 					'Password is required, must be a non-empty string, contain at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character.',
-			}
-		}
-
-		if (
-			!phone_number ||
-			phone_number.trim().length === 0 ||
-			typeof phone_number !== 'number' ||
-			!this.validatePhoneNumber(phone_number)
-		) {
-			return {
-				isValid: false,
-				error: 'The phone number field must contain at least 10 digits.',
 			}
 		}
 
@@ -85,8 +73,8 @@ class AuthValidator {
 	}
 
 	static validatePassword(password) {
-		const isValidLenght = password.length >= 6
-		if (!isValidLenght) {
+		const isValidLength = password.length >= 6
+		if (!isValidLength) {
 			return false
 		} else {
 			return true
