@@ -1,0 +1,82 @@
+/* Основные стили для панели регистрации и входа */
+.registration-login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    width: 400px;
+    margin: 2rem auto;
+  }
+  
+  /* Заголовок панели */
+  .registration-login-container h2 {
+    color: #343a40;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Стили для форм */
+  .registration-login-container form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  /* Стили для полей ввода */
+  .registration-login-container input[type="text"],
+  .registration-login-container input[type="password"],
+  .registration-login-container input[type="email"] {
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+  }
+  
+  /* Эффект при фокусе на поле ввода */
+  .registration-login-container input:focus {
+    border-color: #0069d9;
+    outline: none;
+  }
+  
+  /* Стили для кнопок */
+  .registration-login-container button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+    transition: transform 0.2s ease;
+  }
+  
+  /* Эффект при наведении на кнопку */
+  .registration-login-container button:hover {
+    background-color: #0056b3;
+    transform: translateY(-5px);
+  }
+  
+
+  .registration-login-container .footer-text {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  
+ 
+  .registration-login-container .footer-text a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .registration-login-container .footer-text a:hover {
+    text-decoration: underline;
+  }
