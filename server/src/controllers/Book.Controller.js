@@ -69,7 +69,7 @@ class BookController {
         book_cover,
         user_id:id
       });
-      console.log(newBook, '<<<<<<<<<<<<<<<<<<<<<<<<');
+      console.log(newBook, '<<<<<<<<<<<<<<<<<<<<<<<');
       // console.log("===>>>");
       if (!newBook) {
         return res.status(400).json(formatResponse(400, `Failed to create new Book`));
