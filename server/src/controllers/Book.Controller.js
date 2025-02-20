@@ -40,6 +40,7 @@ class BookController {
     }
   }
 
+  // создать
   static async createBook(req, res) {
     const { title, author, user_comment, book_cover, user_id } = req.body;
 
@@ -62,6 +63,7 @@ class BookController {
     }
   }
 
+  // обновить
   static async updateBook(req, res){
     
     const {id} = req.params
@@ -76,12 +78,32 @@ class BookController {
       return res.status(400).json(formatResponse(400, 'Validation error', null, error));
     }
     try {
-      console.log(id,title, author, user_comment, book_cover, user_id);
+      // console.log(id,title, author, user_comment, book_cover, user_id);
       
       const updateBook = await BookService.update(+id,{title, author, user_comment, book_cover, user_id})
-      res.status(203).json(formatResponse(203,"Updated", updateBook ))
+      res.status(200).json(formatResponse(200,"Updated", updateBook ))
     } catch ({message}) {
       res.status(500).json(500, 'Internal server error(getBookById)', null, message);
+    }
+  }
+
+  // удалить
+  ststic async deleteBookById(req, res){
+    const {id} = req.params
+    // const user = !!!!!!!!
+    if (!isValidId(id)) {
+      return res.status(400).json(formatResponse(400, 'Invalid task ID'));
+    }
+    try {
+      const deletedBook = await BookService.delete(reformatId(id))
+      res
+      .status(200)
+      .json(formatResponse(200, `Book with id ${id} successfully deleted`));
+
+
+    } catch ({message}) {
+      res.status(500).json(500, 'Internal server error(deleteBookById)', null, message);
+      
     }
   }
 }

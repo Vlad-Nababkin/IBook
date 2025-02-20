@@ -31,6 +31,12 @@ class BookService {
 
     return book;
   }
+
+  static async delete(id){
+    const book = await this.getBookById(id)
+    if (book)
+    {await book.destroy()}
+    return book
 }
 
 module.exports = BookService;

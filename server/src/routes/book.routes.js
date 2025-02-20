@@ -7,7 +7,7 @@ router
 .get('/:id', BookController.getBookById)
 .post('/', BookController.createBook)
 .put('/:id', BookController.updateBook)
-// .delete('/:id', BookController.deleteBook)
+.delete('/:id', BookController.deleteBook)
 
 
 
