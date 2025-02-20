@@ -37,11 +37,7 @@ class AuthValidator {
 		}
 
 		if (
-			!phone_number ||
-			phone_number.trim().length === 0 ||
-			typeof phone_number !== 'number' ||
-			!this.validatePhoneNumber(phone_number)
-		) {
+			!phone_number || phone_number.trim().length === 0 ) {
 			return {
 				isValid: false,
 				error: 'The phone number field must contain at least 10 digits.',

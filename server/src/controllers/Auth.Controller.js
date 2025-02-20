@@ -11,6 +11,10 @@ class AuthController {
 		try {
 			const { user } = res.locals
 
+			if (!user) {
+				return res.status(400).json(formatResponse(400, 'User data is missing'))
+			}
+
 			const { accessToken, refreshToken } = generateTokens({ user })
 
 			res.status(200).cookie('refreshToken', refreshToken, cookiesConfig).json(
@@ -19,8 +23,8 @@ class AuthController {
 					accessToken,
 				})
 			)
-		} catch ({ message }) {
-			console.error(message)
+		} catch ({ message, stack }) {
+			console.error('Error in refreshTokens:', message, stack)
 			res
 				.status(500)
 				.json(formatResponse(500, 'Internal server error', null, message))
@@ -59,7 +63,7 @@ class AuthController {
 						)
 					)
 			}
-			const hashedPassword = await bcrypt.hash(10)
+			const hashedPassword = await bcrypt.hash(password, 10)
 
 			const newUser = await UserService.create({
 				username,
@@ -101,7 +105,7 @@ class AuthController {
 			console.error(message)
 			res
 				.status(500)
-				.json(formatResponse(500, 'Internal server error', null, message))
+				.json(formatResponse(500, '======Internal server error', null, message))
 		}
 	}
 
