@@ -1,4 +1,10 @@
 /* Основные стили для навигации */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+
 nav {
   display: flex;
   justify-content: space-around;
