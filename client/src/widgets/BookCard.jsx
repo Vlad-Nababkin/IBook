@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 // import { useNavigate } from 'react-router';
 import { Link } from 'react-router';
 import { BookApi } from '../entities/book/BookApi';
@@ -14,7 +15,7 @@ export default function BookCard({ book, setBooks }) {
       }
       // рендерим без удаленной
       if (statusCode === 200) {
-        setTasks((prev) => prev.filter((el) => el.id !== book.id));
+        setBooks(prev => prev.filter(el => el.id !== book.id))
       }
     } catch (error) {
       console.log(error);
@@ -22,15 +23,15 @@ export default function BookCard({ book, setBooks }) {
   }
 
   return (
-    <div>
-      BookCard
-      <Link to={`/books/${book.id}`}>
-        <h3>{book.title}</h3>
-      </Link>
-      <h3>{book.body}</h3>
-      <button type="button" onClick={deleteButtonHandler}>
-        удалить пост
-      </button>
-    </div>
-  );
+		<div>
+			BookCard
+			<Link to={`/books/${book.id}`}>
+				<h3>{book.title}</h3>
+			</Link>
+			<h3>{book.user_comment}</h3>
+			<button type='button' onClick={deleteButtonHandler}>
+				удалить пост
+			</button>
+		</div>
+	)
 }

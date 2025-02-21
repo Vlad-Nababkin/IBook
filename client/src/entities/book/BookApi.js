@@ -2,9 +2,12 @@
 import { axiosInstance } from '../../shared/lib/axiosinstance';
 
 export class BookApi {
-  static async getAll() {
-    const { data } = axiosInstance.get('/books');
-    return data;
+
+
+  static async getAll(){
+    const response = await axiosInstance.get('/books')
+    return response.data.data
+
   }
 
   static async create(inputs) {
