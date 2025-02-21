@@ -84,9 +84,10 @@ class BookController {
 
   // обновить
   static async updateBook(req, res) {
+    const {user}=res.locals
     const { id } = req.params;
     const { title, author, user_comment, book_cover, user_id } = req.body;
-    // console.log(id,title, author, user_comment, book_cover, user_id);
+    
 
     if (!isValidId(id)) {
       return res.status(400).json(formatResponse(400, 'Invalid book ID'));
@@ -100,14 +101,29 @@ class BookController {
       return res.status(400).json(formatResponse(400, 'Validation error', null, error));
     }
     try {
-      // console.log(id,title, author, user_comment, book_cover, user_id);
 
+      // книга по id
+      const bookToUpdate = await BookService.getById(+id)
+      
+      if(bookToUpdate.user_id !== user.id){
+        return res
+          .status(400)
+          .json(
+            formatResponse(
+              400,
+              `No rights to update book with id ${id}`,
+              null,
+              `No rights to update book with id ${id}`
+            )
+          );
+      }
+      
       const updateBook = await BookService.update(+id, {
         title,
         author,
         user_comment,
         book_cover,
-        user_id,
+        user_id:user.id,
       });
       res.status(200).json(formatResponse(200, 'Updated', updateBook));
     } catch ({ message }) {
@@ -125,22 +141,22 @@ class BookController {
     }
 
     try {
-      //* Получаем книгу по id
-      // const bookToDelete = await BookService.getById(+id);
+      // * Получаем книгу по id
+      const bookToDelete = await BookService.getById(+id);
 
       // ! Если запрашивающий операцию юзер и владелец не сходятся, выбрасываем ошибку
-      // if (bookToDelete.user_id !== user.id) {
-      //   return res
-      //     .status(400)
-      //     .json(
-      //       formatResponse(
-      //         400,
-      //         `No rights to delete book with id ${id}`,
-      //         null,
-      //         `No rights to delete Book with id ${id}`,
-      //       ),
-      //     );
-      // }
+      if (bookToDelete.user_id !== user.id) {
+        return res
+          .status(400)
+          .json(
+            formatResponse(
+              400,
+              `No rights to delete book with id ${id}`,
+              null,
+              `No rights to delete book with id ${id}`,
+            ),
+          );
+      }
       //? За запросы в БД отвечает сервис (форматируем id под тип данных number)
       const deletedBook = await BookService.delete(reformatId(id));
 
