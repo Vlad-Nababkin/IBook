@@ -10,12 +10,15 @@ export class BookApi {
   }
 
   static async create(inputs){
+    try {
+      const {data} = await axiosInstance.post('/books', inputs)
+      return data
+    } catch (error) {
+      console.error('ОШИБКА ТУТ', error)
+			throw error
+    }
 
     
-    const {data} = await axiosInstance.post('/books', inputs)
-    console.log("=====>>",data);
-    
-    return data
   }
 
   static async delete(id){

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import BookCard from '../BookCard';
 
 export default function BookList({ books, setBooks }) {
