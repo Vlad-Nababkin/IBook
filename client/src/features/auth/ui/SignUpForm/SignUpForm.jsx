@@ -42,6 +42,7 @@ export default function SignUpForm({ setUser }) {
       if (statusCode === 201) {
         setUser(data.user);
         setAccessToken(data.accessToken);
+        localStorage.setItem('user', JSON.stringify(data.user))
         setInputs(INITIAL_INPUTS_DATA);
         navigate('/');
       }

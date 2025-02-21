@@ -7,7 +7,7 @@ const bcrypt = require('bcrypt')
 
 // try to fix
 class AuthController {
-	static async refreshTokens(req, res) {
+	static async refreshToken(req, res) {
 		try {
 			const { user } = res.locals
 			

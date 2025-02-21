@@ -2,6 +2,7 @@ import { NavLink } from 'react-router'
 import { useNavigate } from 'react-router'
 import UserApi from '../../entities/user/UserApi'
 import Swal from 'sweetalert2'
+import styles from './Nav.module.css'
 
 export default function Nav({ user, setUser }) {
 	let navigate = useNavigate()
@@ -36,17 +37,35 @@ export default function Nav({ user, setUser }) {
 	}
 	return (
 		<nav>
-			
-					<NavLink to='/'>Home</NavLink>
-					<NavLink to='/login'>Login</NavLink>
-					<NavLink to='/reg'>Registration</NavLink>
-			
-					{/* <span>Привет {user.username}</span> */}
-					<NavLink to='/books'>Books</NavLink>
-					<button type='submit' onClick={signOutHandler}>
-						Exit
-					</button>
-			
+			<NavLink
+				to='/'
+				className={({ isActive }) => (isActive ? styles.active : '')}
+			>
+				Home
+			</NavLink>
+			<NavLink
+				to='/login'
+				className={({ isActive }) => (isActive ? styles.active : '')}
+			>
+				Login
+			</NavLink>
+			<NavLink
+				to='/reg'
+				className={({ isActive }) => (isActive ? styles.active : '')}
+			>
+				Registration
+			</NavLink>
+
+			{/* <span>Привет {user.username}</span> */}
+			<NavLink
+				to='/books'
+				className={({ isActive }) => (isActive ? styles.active : '')}
+			>
+				Books
+			</NavLink>
+			<button type='submit' onClick={signOutHandler}>
+				Exit
+			</button>
 		</nav>
 	)
 }
