@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { BookApi } from '../../entities/book/BookApi';
 
-export default function BookForm({ setBooks }) {
+export default function BookForm({ books,setBooks }) {
   
   const [inputs, setInputs] = useState({
     title: '',
     author: '',
     user_comment: '',
-    book_cover: 'обложки нет',
+    book_cover: '',
   });
-  
+
   const [error, setError] = useState('');
 
   // изменение поля ввода

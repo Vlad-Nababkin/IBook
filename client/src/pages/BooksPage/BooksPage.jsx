@@ -21,7 +21,9 @@ export default function BooksPage() {
 return(
   <>
   <h2>страничка создания и отрисовки существующих</h2>
-  <BookForm setBooks = {setBooks} />
+  {/* создание карточки */}
+  <BookForm books = {books} setBooks = {setBooks} />
+  {/* отрисовка всех карточек */}
   <BookList books={books} setBooks={setBooks}/>
   </>
 )
