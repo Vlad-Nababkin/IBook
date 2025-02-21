@@ -10,6 +10,7 @@ class AuthController {
 	static async refreshTokens(req, res) {
 		try {
 			const { user } = res.locals
+			
 
 			if (!user) {
 				return res.status(400).json(formatResponse(400, 'User data is missing'))
@@ -32,11 +33,10 @@ class AuthController {
 	}
 
 	static async signUp(req, res) {
-		const { email, username, phone_number, password } = req.body
+		const { email, username, password } = req.body
 
 		const { isValid, error } = AuthValidator.validateSignUp({
 			email,
-			phone_number,
 			password,
 			username,
 		})
@@ -68,8 +68,7 @@ class AuthController {
 			const newUser = await UserService.create({
 				username,
 				email: normalizedEmail,
-				password: hashedPassword,
-				phone_number,
+				password: hashedPassword
 			})
 
 			if (!newUser) {
