@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react';
 import { BookApi } from '../../entities/book/BookApi';
 import styles from './BookForm.module.css'

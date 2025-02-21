@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useEffect } from 'react';
 import BookCard from '../BookCard';
 import styles from './BookList.module.css';

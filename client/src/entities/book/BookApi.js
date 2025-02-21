@@ -9,17 +9,20 @@ export class BookApi {
     console.log('!!!!!!!!!!!',response.data)
     return response.data.data
 
+
+  static async create(inputs){
+    try {
+      const {data} = await axiosInstance.post('/books', inputs)
+      return data
+    } catch (error) {
+      console.error('ОШИБКА ТУТ', error)
+			throw error
+    }
   }
 
   static async getById(id){
     const {data} = await axiosInstance.get(`/books/${id}`)
     return data
-  }
-
-  static async create(inputs) {
-    const { data } = await axiosInstance.post('/books', inputs);
-    // console.log("=====>>",data);
-    return data;
   }
 
   static async delete(id) {

@@ -8,8 +8,11 @@ import BooksPage from '../pages/BooksPage/BooksPage'
 import UserApi from '../entities/user/UserApi'
 import { setAccessToken } from '../shared/lib/axiosinstance'
 import MainPage from '../pages/MainPage/MainPage'
+import ForgotPasswordPage from '../pages/ForgotPasswordPage/ForgotPasswordPage'
+import ResetPasswordPage from '../pages/ResetPasswordPage/ResetPasswordPage'
 import NotFound from '../pages/NotFoundPage/NotFound'
 import OneBookPage from '../pages/OneBookPage/OneBookPage'
+
 // import OneBookPage from "../pages/OneBookPage/OneBookPage";
 
 export default function App() {
@@ -40,14 +43,19 @@ export default function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path='/' element={<Layout user={user} setUser={setUser} />} >
-          		<Route path='/' element={<MainPage />} />
+				<Route path='/' element={<Layout user={user} setUser={setUser} />}>
+					<Route path='/' element={<MainPage />} />
 					<Route path='/reg' element={<RegPage setUser={setUser} />} />
 					<Route path='/login' element={<LoginPage setUser={setUser} />} />
 					<Route path='/books' element={<BooksPage user={user} setUser = {setUser} />} />
           <Route path='/books/:id' element={<OneBookPage user={user} setUser = {setUser}  />} />
+					<Route path='/forgot-password' element={<ForgotPasswordPage />} />
 				</Route>
-				<Route path='*' Component={NotFound}></Route>
+					<Route
+						path='/reset-password/:token'
+						element={<ResetPasswordPage />}
+					/>
+           <Route path='*' Component={NotFound}></Route>
 			</Routes>
 		</BrowserRouter>
 	)

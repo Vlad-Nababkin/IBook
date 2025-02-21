@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const BookService = require('../services/Book.service');
 const BookValidator = require('../utils/Book.validator');
 const formatResponse = require('../utils/formatResponse');
