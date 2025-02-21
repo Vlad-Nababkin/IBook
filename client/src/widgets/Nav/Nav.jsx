@@ -43,29 +43,37 @@ export default function Nav({ user, setUser }) {
 			>
 				Home
 			</NavLink>
-			<NavLink
-				to='/login'
-				className={({ isActive }) => (isActive ? styles.active : '')}
-			>
-				Login
-			</NavLink>
-			<NavLink
-				to='/reg'
-				className={({ isActive }) => (isActive ? styles.active : '')}
-			>
-				Registration
-			</NavLink>
-
-			{/* <span>Привет {user.username}</span> */}
-			<NavLink
-				to='/books'
-				className={({ isActive }) => (isActive ? styles.active : '')}
-			>
-				Books
-			</NavLink>
+			{!user && (
+				<>
+					<NavLink
+						to='/login'
+						className={({ isActive }) => (isActive ? styles.active : '')}
+					>
+						Login
+					</NavLink>
+					<NavLink
+						to='/reg'
+						className={({ isActive }) => (isActive ? styles.active : '')}
+					>
+						Registration
+					</NavLink>
+				</>
+			)}
+			{user && (
+				<>
+					<span>Привет {user.username}</span>
+					<NavLink
+						to='/books'
+						className={({ isActive }) => (isActive ? styles.active : '')}
+					>
+						Books
+					</NavLink>
 			<button type='submit' onClick={signOutHandler}>
 				Exit
 			</button>
+				</>
+			)}
+
 		</nav>
 	)
 }
