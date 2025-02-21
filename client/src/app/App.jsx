@@ -37,7 +37,6 @@ export default function App() {
 					<Route path='/reg' element={<RegPage setUser={setUser} />} />
 					<Route path='/login' element={<LoginPage setUser={setUser} />} />
 					<Route path='/books' element={<BooksPage />} />
-					{/* <Route path='/books/:id' element={<OneBookPage  />} /> */}
 				</Route>
 			</Routes>
 		</BrowserRouter>
