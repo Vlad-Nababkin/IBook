@@ -1,0 +1,35 @@
+
+
+.not-found-link {
+    display: inline-block; 
+    padding: 10px 20px; 
+    background-color: black; 
+    color: rgb(255, 255, 255); 
+    text-decoration: none; 
+    border-radius: 5px; 
+}
+.not-found-link:hover {
+    background-color: #0056b3; 
+    transition: transform 0.3s ease;
+}
+
+.not-found-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Занимает всю высоту экрана */
+    background-image: url('../../assets/notebook.jpg'); /* Путь к изображению фона */
+    background-size: cover; /* Заполнение фона */
+    background-position: center; /* Центрирование фона */
+    color: #ffffff; 
+    font-family: 'Georgia', serif;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7); 
+}
+.not-found-text {
+    font-size: 2rem; 
+    line-height: 1.5; 
+    margin: 20px 0; 
+}
+
+/* ('../../assets/notebook.jpg') */

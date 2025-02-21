@@ -7,6 +7,7 @@ import BooksPage from '../pages/BooksPage/BooksPage'
 import UserApi from '../entities/user/UserApi'
 import { setAccessToken } from '../shared/lib/axiosinstance'
 import MainPage from '../pages/MainPage/MainPage'
+import NotFound from '../pages/NotFoundPage/NotFound'
 // import OneBookPage from "../pages/OneBookPage/OneBookPage";
 
 export default function App() {
@@ -35,11 +36,12 @@ export default function App() {
 		<BrowserRouter>
 			<Routes>
 				<Route path='/' element={<Layout user={user} setUser={setUser} />} >
-          <Route path='/' element={<MainPage />} />
+          		<Route path='/' element={<MainPage />} />
 					<Route path='/reg' element={<RegPage setUser={setUser} />} />
 					<Route path='/login' element={<LoginPage setUser={setUser} />} />
 					<Route path='/books' element={<BooksPage />} />
 				</Route>
+				<Route path='*' Component={NotFound}></Route>
 			</Routes>
 		</BrowserRouter>
 	)
