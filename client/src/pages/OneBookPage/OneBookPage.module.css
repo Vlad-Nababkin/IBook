@@ -1,0 +1,95 @@
+/* OneBookPage.module.css */
+
+/* Оформление контейнера карточки */
+.oneBookContainer {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* Стили для полей ввода и textarea */
+.inputField {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.textArea {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  min-height: 80px;
+}
+
+/* Стили для кнопок */
+.saveButton,
+.editButton {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.saveButton {
+  background-color: #28a745;
+}
+
+.saveButton:hover {
+  background-color: #218838;
+}
+
+.editButton {
+  background-color: #007bff;
+}
+
+.editButton:hover {
+  background-color: #0056b3;
+}
+
+/* Стили для заголовков и комментариев */
+.title {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+}
+
+.author {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #555;
+  text-align: center;
+}
+
+.comment {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+}
+
+/* Стили для изображения обложки */
+.bookCover {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 10px auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BookApi } from '../../entities/book/BookApi';
+import styles from './BookForm.module.css'
 
 export default function BookForm({ books,setBooks }) {
   
@@ -52,19 +53,21 @@ export default function BookForm({ books,setBooks }) {
   }
 
   return (
-    <form onSubmit={onSubmitHandler}>
-      BookForm
+<form onSubmit={onSubmitHandler} className={styles.bookForm}>
+      <h2>Создай свой новый пост здесь</h2>
       <input
         name="title"
         placeholder="title"
         value={inputs.title}
         onChange={onChangeHandler}
+        className={styles.inputField}
       />
       <input
         name="author"
         placeholder="author"
         value={inputs.author}
         onChange={onChangeHandler}
+        className={styles.inputField}
       />
       <textarea
         name="user_comment"
@@ -72,7 +75,7 @@ export default function BookForm({ books,setBooks }) {
         value={inputs.user_comment}
         onChange={onChangeHandler}
         rows={4}
-        style={{ width: '100%' }}
+        className={styles.textArea}
       />
       <input
         type="text"
@@ -80,16 +83,20 @@ export default function BookForm({ books,setBooks }) {
         placeholder="Вставь ссылку на обложку"
         value={inputs.book_cover}
         onChange={onChangeHandler}
+        className={styles.inputField}
       />
       {inputs.book_cover && (
         <img
           src={inputs.book_cover}
           alt="Обложка книги"
-          style={{ width: '200px', height: 'auto', marginTop: '10px' }}
+          className={styles.bookImage}
         />
       )}
-      <button type="submit">создать пост о книжке</button>
-      {error && <span style={{ color: 'red' }}>{error}</span>}
+      <button type="submit" className={styles.submitButton}>
+        создать пост о книжке
+      </button>
+      {error && <span className={styles.errorText}>{error}</span>}
     </form>
   );
+
 }
