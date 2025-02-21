@@ -41,7 +41,7 @@ export default function Nav({ user, setUser }) {
 				to='/'
 				className={({ isActive }) => (isActive ? styles.active : '')}
 			>
-				Home
+				Главная
 			</NavLink>
 			{!user && (
 				<>
@@ -49,27 +49,27 @@ export default function Nav({ user, setUser }) {
 						to='/login'
 						className={({ isActive }) => (isActive ? styles.active : '')}
 					>
-						Login
+						Вход
 					</NavLink>
 					<NavLink
 						to='/reg'
 						className={({ isActive }) => (isActive ? styles.active : '')}
 					>
-						Registration
+						Регистрация
 					</NavLink>
 				</>
 			)}
 			{user && (
 				<>
-					<span>Привет {user.username}</span>
+					<span className='userName'>Привет {user.username}</span>
 					<NavLink
 						to='/books'
 						className={({ isActive }) => (isActive ? styles.active : '')}
 					>
-						Books
+						Разместить посты
 					</NavLink>
 			<button type='submit' onClick={signOutHandler}>
-				Exit
+				Выход
 			</button>
 				</>
 			)}
