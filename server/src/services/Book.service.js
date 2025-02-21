@@ -13,7 +13,7 @@ class BookService {
   }
 
   static async create({ title, author, user_comment, book_cover,user_id}) {
-    console.log(title, author, user_comment, book_cover,user_id);
+    // console.log(title, author, user_comment, book_cover,user_id);
     
     return await Book.create({
       title,
@@ -26,7 +26,7 @@ class BookService {
 
   static async update(id, data) {
     // console.log(id,data);
-    const book = await Book.findByPk(id);
+    const book = await this.getById(id);
 
     if (book) {
       book.title = data.title;
@@ -36,12 +36,7 @@ class BookService {
       book.user_id = data.user_id;
       await book.save();
     }
-    // const updateBook = await   Book.update(data,{where:{
-    //   id:id
-    // }})
-    // console.log(updateBook);
-
-    return book;
+    return book
   }
 
   static async delete(id) {
