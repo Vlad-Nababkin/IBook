@@ -8,6 +8,7 @@ import BooksPage from '../pages/BooksPage/BooksPage'
 import UserApi from '../entities/user/UserApi'
 import { setAccessToken } from '../shared/lib/axiosinstance'
 import MainPage from '../pages/MainPage/MainPage'
+import OneBookPage from '../pages/OneBookPage/OneBookPage'
 
 // import OneBookPage from "../pages/OneBookPage/OneBookPage";
 
@@ -42,7 +43,7 @@ export default function App() {
 					<Route path='/reg' element={<RegPage setUser={setUser} />} />
 					<Route path='/login' element={<LoginPage setUser={setUser} />} />
 					<Route path='/books' element={<BooksPage />} />
-             <Route path='/books/:id' element={<OneBookPage  />} />
+          <Route path='/books/:id' element={<OneBookPage  />} />
 				</Route>
 			</Routes>
 		</BrowserRouter>
