@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { BookApi } from '../../entities/book/BookApi';
-
+import styles from './OneBookPage.module.css'
 
 export default function OneBookPage() {
   const { id } = useParams();
@@ -49,9 +49,9 @@ export default function OneBookPage() {
   }
   // записываем новые данные
   async function saveHandler() {
-    console.log( "<<<<<========");
+    // console.log( "<<<<<========");
     const response = await BookApi.update(id,book);
-    console.log(response, "<<<<<========");
+    // console.log(response, "<<<<<========");
     
     if (response.statusCode === 200) {
       alert('обновлено');
@@ -62,49 +62,59 @@ export default function OneBookPage() {
   }
 
   return (
-    <div>
+    <div className={styles.oneBookContainer}>
       {isEdit ? (
         <>
           <input
+          className={styles.inputField}
             type="text"
             value={book.title}
             onChange={handlerTitleChange}
             placeholder="Название книги"
+            
           />
           <input
             type="text"
             value={book.author}
             onChange={handlerAuthorChange}
             placeholder="Автор"
+            className={styles.inputField}
           />
           <textarea
             value={book.user_comment}
             onChange={handlerUserCommentChange}
             placeholder="Комментарий"
+            className={styles.textArea}
           />
           <input
             type="text"
             value={book.book_cover}
             onChange={handlerBookCover}
             placeholder="Ссылка на обложку"
+            className={styles.inputField}
           />
-          <button onClick={saveHandler}>Сохранить</button>
+          <button onClick={saveHandler} className={styles.saveButton}>
+            Сохранить
+          </button>
         </>
       ) : (
         <>
-          <h3>{book.title}</h3>
-          <h3>{book.author}</h3>
-          <h3>{book.user_comment}</h3>
+          <h3 className={styles.title}>{book.title}</h3>
+          <h3 className={styles.author}>{book.author}</h3>
+          <h3 className={styles.comment}>{book.user_comment}</h3>
           {book.book_cover && (
             <img
               src={book.book_cover}
               alt={`Обложка книги ${book.title}`}
-              style={{ width: '200px', height: 'auto' }}
+              className={styles.bookCover}
             />
           )}
-          <button onClick={editHandler}>Редактировать</button>
+          <button onClick={editHandler} className={styles.editButton}>
+            Редактировать
+          </button>
         </>
       )}
     </div>
   );
+
 }

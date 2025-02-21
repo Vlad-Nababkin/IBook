@@ -15,6 +15,8 @@ import OneBookPage from '../pages/OneBookPage/OneBookPage'
 export default function App() {
 	// следим за юзером(пробрасываем в автор и регу)
 	const [user, setUser] = useState(null)
+  // console.log("+++++++++", user);
+  
 
 
 	// обновляем токены
@@ -42,8 +44,8 @@ export default function App() {
           <Route path='/' element={<MainPage />} />
 					<Route path='/reg' element={<RegPage setUser={setUser} />} />
 					<Route path='/login' element={<LoginPage setUser={setUser} />} />
-					<Route path='/books' element={<BooksPage />} />
-          <Route path='/books/:id' element={<OneBookPage  />} />
+					<Route path='/books' element={<BooksPage user={user} setUser = {setUser} />} />
+          <Route path='/books/:id' element={<OneBookPage user={user} setUser = {setUser}  />} />
 				</Route>
 			</Routes>
 		</BrowserRouter>

@@ -6,6 +6,7 @@ export class BookApi {
 
   static async getAll(){
     const response = await axiosInstance.get('/books')
+    console.log('!!!!!!!!!!!',response.data)
     return response.data.data
 
   }
