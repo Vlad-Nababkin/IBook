@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import UserApi from '../../entities/user/UserApi'
 import { useNavigate } from 'react-router'
+import './ForgotPasswordPage.css'
 
 export default function ForgotPasswordPage() {
 	const [email, setEmail] = useState('')
@@ -29,15 +30,18 @@ export default function ForgotPasswordPage() {
 		}
 	}
   return (
-		<form onSubmit={onSubmitHandler}>
-			<input
-				type='email'
-				name='email'
-				placeholder='Email'
-				onChange={e => setEmail(e.target.value)}
-				value={email}
-			/>
-			<button type='submit'>Send</button>
-		</form>
+		<div className='forgot-password-container'>
+			<form className='forgot-password-form' onSubmit={onSubmitHandler}>
+				<h2>Forgot Password</h2>
+				<input
+					type='email'
+					name='email'
+					placeholder='Email'
+					onChange={e => setEmail(e.target.value)}
+					value={email}
+				/>
+				<button type='submit'>Send</button>
+			</form>
+		</div>
 	)
 }

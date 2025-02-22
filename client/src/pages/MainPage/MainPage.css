@@ -1,0 +1,73 @@
+/* Основной контейнер для списка книг */
+.book-list {
+  width: 100%;
+  max-width: 1200px; /* Ограничиваем ширину для удобства чтения */
+  margin: 0 auto; /* Центрируем контейнер */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Расстояние между карточками книг */
+}
+
+/* Контейнер для каждой книги */
+.book-item {
+  background: #159680; /* Темный фон для карточки */
+  border-radius: 10px; /* Закругленные углы */
+  padding: 20px;
+  display: flex;
+  align-items: flex-start; /* Выравниваем элементы по верхнему краю */
+  gap: 20px; /* Расстояние между текстом и изображением */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Тень для карточки */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимация при наведении */
+}
+
+/* Эффект при наведении на карточку */
+.book-item:hover {
+  transform: translateY(-5px); /* Поднимаем карточку */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Увеличиваем тень */
+}
+
+/* Стили для изображения обложки книги */
+.book-item img {
+  width: 150px; /* Фиксированная ширина */
+  height: auto;
+  border-radius: 5px; /* Закругленные углы у изображения */
+  object-fit: cover; /* Чтобы изображение не искажалось */
+}
+
+/* Контейнер для текстовой информации */
+.book-info {
+  flex: 1; /* Занимает оставшееся пространство */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Расстояние между элементами */
+}
+
+/* Стили для заголовка книги */
+.book-info h3 {
+  font-size: 24px;
+  color: #ffffff;
+  margin: 0;
+  font-weight: 600; /* Полужирный шрифт */
+}
+
+/* Стили для автора книги */
+.book-info h4 {
+  font-size: 18px;
+  color: #373737;
+  margin: 0;
+  font-weight: 500; /* Средний вес шрифта */
+}
+
+/* Стили для комментария пользователя */
+.book-info p {
+  font-size: 16px;
+  color: #000000;
+  margin: 0;
+  line-height: 1.5; /* Улучшаем читаемость */
+}
+
+/* Активный элемент (если нужно выделить какую-то книгу) */
+.book-item.active {
+  border: 2px solid #820000; /* Красная рамка для активной книги */
+}

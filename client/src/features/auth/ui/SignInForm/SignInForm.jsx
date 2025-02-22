@@ -48,26 +48,33 @@ export default function SignInForm({ setUser }) {
     }
   };
 
+    const onForgotPasswordClick = () => {
+			navigate('/forgot-password') // Перенаправляем на страницу восстановления пароля
+		}
+
   const { email, password } = inputs;
 
   return (
-    <form onSubmit={onSubmitHandler}>
-      <input
-        type='email'
-        name='email'
-        placeholder='email'
-        onChange={onChangeHandler}
-        value={email}
-      />
+		<form onSubmit={onSubmitHandler}>
+			<input
+				type='email'
+				name='email'
+				placeholder='email'
+				onChange={onChangeHandler}
+				value={email}
+			/>
 
-      <input
-        type='password'
-        name='password'
-        placeholder='Password'
-        onChange={onChangeHandler}
-        value={password}
-      />
-      <button type='submit'>Send</button>
-    </form>
-  );
+			<input
+				type='password'
+				name='password'
+				placeholder='Password'
+				onChange={onChangeHandler}
+				value={password}
+			/>
+			<button type='submit'>Send</button>
+			<button type='button' onClick={onForgotPasswordClick}>
+				Забыли пароль?
+			</button>
+		</form>
+	)
 }

@@ -8,7 +8,7 @@ export class BookApi {
     const response = await axiosInstance.get('/books')
     console.log('!!!!!!!!!!!',response.data)
     return response.data.data
-
+  }
 
   static async create(inputs){
     try {
